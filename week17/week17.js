@@ -365,7 +365,7 @@ console.log(person2.changeCity("New York"));
 const employee = new Employee("Имя", "Должность", "Зарплата");
 console.log(employee);*/
 
-//Задание 24 НЕ ПОНИМАЮ, ЗАЧЕМ ИСПОЛЬЗОВАТЬ ТУТ CALL/APPLY
+//Задание 24 НЕ ПОНИМАЮ, ЗАЧЕМ ИСПОЛЬЗОВАТЬ ТУТ CALL/APPLY, РАЗОБРАТЬСЯ!
 //Добавьте в класс Employee метод calculateBonus, который будет принимать процент бонуса и увеличивать зарплату сотрудника на соответствующую сумму. Создайте объект employee2 на основе класса Employee и вызовите метод calculateBonus с процентом 10. Выведите новую зарплату сотрудника в консоль.
 //Подсказка: Используйте метод call или apply, чтобы вызвать метод calculateBonus для объекта employee2 и передать процент бонуса.
 
@@ -376,8 +376,8 @@ class Employee {
     this.position = position;
     this.salary = salary;
   }
-  calculateBonus(percent) {
-    return (this.salary / 100) * percent + this.salary;
+  calculateBonus(pert) {
+    return (this.salary / 100) * pert + this.salary;
   }
 }
 const employee2 = new Employee("Сидоров", "машинист", 100000);
