@@ -14,13 +14,12 @@ console.log(worker);*/
 
 //Задание 2
 //Добавьте в класс Worker метод fullName, который будет возвращать полное имя работника в формате "Фамилия, Имя". Создайте объект worker2 на основе класса Worker и выведите его полное имя в консоль с помощью метода fullName
-
+//В задании 2 не нужно вызывать fullName в конструкторе - убрала, случайно затесался
 //Ваш код
 class Worker {
   constructor(name, surname) {
     this.name = name;
     this.surname = surname;
-    this.fullName();
   }
   fullName() {
     return `${this.name} ${this.surname}`;
@@ -105,14 +104,14 @@ console.log(circle);*/
 
 //Задание 8
 //Добавьте в класс Circle метод calculateArea, который будет вычислять и возвращать площадь круга. Формула для расчета площади круга: площадь = радиус * радиус * 3.14. Создайте объект circle2 на основе класса Circle с радиусом 3 и выведите его площадь круга в консоль с помощью метода calculateArea.
-
+//В задании 8 лучше для числа пи использовать встроенное Math.PI - исправила
 //Ваш код
 class Circle {
   constructor(radius) {
     this.radius = radius;
   }
   calculateArea() {
-    return this.radius * this.radius * 3, 14;
+    return this.radius * this.radius * Math.PI;
   }
 }
 const circle2 = new Circle(2);
@@ -134,7 +133,8 @@ console.log(student);*/
 
 //Задание 10
 //Добавьте в класс Student метод increaseGrade, который будет увеличивать текущую оценку на 1. Создайте объект student2 на основе класса Student, увеличьте его оценку с помощью метода increaseGrade и выведите новую оценку в консоль.
-
+/*increaseGrade должен увеличивать оценку, мутировать значение
+this.grade++. Или this.grade = this.grade + 1 - исправила, но не понимаю, зачем, прошлая пропись давала правильный результат, а данная оценку не увеличивает*/
 //Ваш код
 class Student {
   constructor(name, age, grade) {
@@ -143,7 +143,7 @@ class Student {
     this.grade = grade;
   }
   increaseGrade() {
-    return this.grade + 1;
+    return (this.grade = this.grade + 1);
   }
 }
 const student2 = new Student("Петр", "Петров", 4);
@@ -195,7 +195,7 @@ console.log(account);*/
 
 //Задание 14
 //Добавьте в класс BankAccount метод deposit, который будет увеличивать баланс на заданную сумму. Создайте объект account2 на основе класса BankAccount, пополните его баланс с помощью метода deposit и выведите новый баланс в консоль.
-
+//рекомендовано внести исправления аналогично задаче 10, не понимаю, зачем
 //Ваш код
 /*class BankAccount {
   constructor(accountNumber, balance) {
@@ -203,7 +203,7 @@ console.log(account);*/
     this.balance = balance;
   }
   deposit() {
-    return this.balance + 100;
+    return (this.balance = this.balance + 100);
   }
 }
 const account2 = new BankAccount("", 200);
@@ -211,7 +211,7 @@ console.log(account2.deposit());*/
 
 //Задание 15
 //В класс BankAccount добавлен метод withdraw, который уменьшает баланс на заданную сумму. Если запрошенная сумма превышает текущий баланс, выведите сообщение "Недостаточно средств". Создайте объект account3 на основе класса BankAccount, попробуйте снять с него сумму, превышающую баланс, и выведите соответствующее сообщение в консоль.
-
+//рекомендовано внести исправления аналогично задаче 10, не понимаю, зачем
 class BankAccount {
   constructor(balance) {
     this.balance = balance;
@@ -220,7 +220,7 @@ class BankAccount {
   withdraw(amount) {
     if (amount <= this.balance) {
       //Уменьшите баланс на заданную сумму
-      return this.balance - amount;
+      return (this.balance = this.balance - amount);
     } else {
       //Выводите в консоль сообщение
       return "Недостаточно средств";
@@ -335,7 +335,7 @@ console.log(person);*/
 
 //Задание 22
 //Добавьте в класс Person метод changeCity, который будет изменять значение свойства city на новое значение. Создайте объект person2 на основе класса Person, вызовите метод changeCity с аргументом "New York" и выведите новое значение свойства city в консоль.
-
+//поле city не меняется: this.city = newCity, - исправила
 //Ваш код
 class Person {
   constructor(name, age, city) {
@@ -344,7 +344,7 @@ class Person {
     this.city = city;
   }
   changeCity(newCity) {
-    return newCity;
+    return (this.city = newCity);
   }
 }
 const person2 = new Person("", 22, "Город");
@@ -365,7 +365,7 @@ console.log(person2.changeCity("New York"));
 const employee = new Employee("Имя", "Должность", "Зарплата");
 console.log(employee);*/
 
-//Задание 24 НЕ ПОНИМАЮ, ЗАЧЕМ ИСПОЛЬЗОВАТЬ ТУТ CALL/APPLY
+//Задание 24 НЕ ПОНИМАЮ, ЗАЧЕМ ИСПОЛЬЗОВАТЬ ТУТ CALL/APPLY, РАЗОБРАТЬСЯ!
 //Добавьте в класс Employee метод calculateBonus, который будет принимать процент бонуса и увеличивать зарплату сотрудника на соответствующую сумму. Создайте объект employee2 на основе класса Employee и вызовите метод calculateBonus с процентом 10. Выведите новую зарплату сотрудника в консоль.
 //Подсказка: Используйте метод call или apply, чтобы вызвать метод calculateBonus для объекта employee2 и передать процент бонуса.
 
@@ -376,8 +376,8 @@ class Employee {
     this.position = position;
     this.salary = salary;
   }
-  calculateBonus(percent) {
-    return (this.salary / 100) * percent + this.salary;
+  calculateBonus(pert) {
+    return (this.salary / 100) * pert + this.salary;
   }
 }
 const employee2 = new Employee("Сидоров", "машинист", 100000);
