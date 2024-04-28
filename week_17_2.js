@@ -57,16 +57,18 @@ class Transport {
 class Car extends Transport {
   constructor(type, price, brand) {
     super(type, price, brand);
+    this._doors = doors;
   }
   getDoorsCount() {
-    return "Количество дверей: " + this.doors;
+    return "Количество дверей: " + this._doors;
   }
 }
 class Bike extends Transport {
   constructor(type, price, brand) {
     super(type, price, brand);
+    this._maxSpeed = maxSpeed;
   }
   getMaxSpeed() {
-    return "Максимальная скорость: " + maxSpeed + " км/ч";
+    return "Максимальная скорость: " + this._maxSpeed + " км/ч";
   }
 }
