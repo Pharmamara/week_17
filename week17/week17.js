@@ -143,7 +143,8 @@ class Student {
     this.grade = grade;
   }
   increaseGrade() {
-    return (this.grade = this.grade + 1);
+    this.grade = this.grade + 1; //ВНАЧАЛЕ ВЫРАЖЕНИЕ С ПРИСВАИВАНИЕМ, ТОЛЬКО ЗАТЕМ ВОЗВРАЩЕНИЕ ЗНАЧЕНИЯ
+    return this.grade;
   }
 }
 const student2 = new Student("Петр", "Петров", 4);
@@ -203,7 +204,8 @@ console.log(account);*/
     this.balance = balance;
   }
   deposit() {
-    return (this.balance = this.balance + 100);
+  this.balance = this.balance +100);
+    return this.balance;
   }
 }
 const account2 = new BankAccount("", 200);
@@ -220,7 +222,8 @@ class BankAccount {
   withdraw(amount) {
     if (amount <= this.balance) {
       //Уменьшите баланс на заданную сумму
-      return (this.balance = this.balance - amount);
+      this.balance = this.balance - amount;
+      return this.balance;
     } else {
       //Выводите в консоль сообщение
       return "Недостаточно средств";
