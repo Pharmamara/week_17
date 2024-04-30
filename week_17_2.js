@@ -55,7 +55,7 @@ class Transport {
   }
 }
 class Car extends Transport {
-  constructor(type, price, brand) {
+  constructor(type, price, brand, doors) {
     super(type, price, brand);
     this._doors = doors;
   }
@@ -64,7 +64,7 @@ class Car extends Transport {
   }
 }
 class Bike extends Transport {
-  constructor(type, price, brand) {
+  constructor(type, price, brand, maxSpeed) {
     super(type, price, brand);
     this._maxSpeed = maxSpeed;
   }
